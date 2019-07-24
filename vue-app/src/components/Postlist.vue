@@ -3,9 +3,9 @@
     <div class="loading" v-if="isLoading">
       <img src="../assets/loading.gif" >
     </div>
-    <div>
+    <div v-else>
       <ul>
-        <li v-show="!isLoading">
+        <li>
           <div class="toobar">
             <a href="#">全部</a>
             <a href="#">精华</a>
@@ -22,13 +22,21 @@
           <span :class="[{
           'put_good': (post.good  === true),
           'put_top':(post.top  === true),
-          'topiclist-tab':(post.good  != true && post.top  != true),
+          'topiclist-tab':(post.good  !== true && post.top  != true),
            }]">
              {{post | tabFormatter}}
           </span>
-          <span>
+          <router-link :to="{
+           name:'article',
+           params:{
+             id : post.id 
+           }
+          }">
+            <span>
              {{post.title}}
           </span>
+          </router-link>
+    
           <span class="last_reply">
              {{post.last_reply_at | formatDate}}
           </span>
@@ -160,7 +168,6 @@ export default {
   .last_reply {
     text-align: right;
     min-width: 50px;
-    display: inline-block;
     white-space: nowrap;
     float: right;
     color: #778087;

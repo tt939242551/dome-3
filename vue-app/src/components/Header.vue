@@ -29,7 +29,7 @@
 img{
   max-width: 120px;
   margin-top: 10px;
-  margin-left: -12px;
+  margin-left: -6px;
 }
 .link{
   float: right;
@@ -42,7 +42,7 @@ a {
     font-size: 13px;
     text-shadow: nonr;
     line-height: 20px;
-    padding: 10px 13px;
+    padding: 10px 12.5px;
   }
 a:hover{
   color: #eee;
@@ -59,7 +59,7 @@ a:hover{
     line-height: 20px;
     position: absolute;
     top: 13px;
-    left: 200px;
+    left: 210px;
     border: 1px;
 }
 input:focus,input:hover{

@@ -2,7 +2,7 @@
   <div id="app">
      <Header />
      <div class="main">
-       <Postlist/>
+       <router-view name="main"></router-view>
      </div>
   </div>
 </template>
@@ -10,7 +10,6 @@
 <script>
 import qs from 'qs'
 import Header from './components/Header'
-import Postlist from './components/Postlist'
 
 export default {
   name: 'App',
@@ -19,7 +18,7 @@ export default {
     }
   },
   components:{
-    Header,Postlist
+    Header
   },
   methods:{ 
     
@@ -30,6 +29,7 @@ export default {
 
 <style scoped>
 #app {
+ min-height: 100vh;
  background-color: #e1e1e1;
  font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,;
 }
