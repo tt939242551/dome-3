@@ -1,12 +1,16 @@
 <template>
   <div id="app">
      <Header />
+     <div class="main">
+       <Postlist/>
+     </div>
   </div>
 </template>
 
 <script>
 import qs from 'qs'
 import Header from './components/Header'
+import Postlist from './components/Postlist'
 
 export default {
   name: 'App',
@@ -15,7 +19,7 @@ export default {
     }
   },
   components:{
-    Header
+    Header,Postlist
   },
   methods:{ 
     
@@ -26,6 +30,11 @@ export default {
 
 <style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+ background-color: #e1e1e1;
+ font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,;
+}
+.main {
+width: 80%;
+margin: 16px auto;
 }
 </style>

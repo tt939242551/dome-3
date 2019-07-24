@@ -1,6 +1,7 @@
 <template>
     <div class="header">
       <img src="../assets/cnodejs_light.svg" alt="">
+      <span><input type="text" class="search"></span>
       <div class="link">
         <a href="#">首页</a>
         <a href="#">新手入门</a>
@@ -23,10 +24,12 @@
   background-color:#444 ;
   height: 50px;
   padding: 0 5.3%;
+  position: relative;
 }
 img{
   max-width: 120px;
   margin-top: 10px;
+  margin-left: -12px;
 }
 .link{
   float: right;
@@ -43,5 +46,24 @@ a {
   }
 a:hover{
   color: #eee;
+}
+.search{
+    background: url(../assets/7-Search.png) 6px 6px no-repeat #888;
+    padding: 4px 5px 3px 23px;
+    background-size: 14px 14px;
+    color: #666;
+    transition: all .5s;
+    border-radius: 15px;
+    font-size: 14px;
+    width: 236px;
+    line-height: 20px;
+    position: absolute;
+    top: 13px;
+    left: 200px;
+    border: 1px;
+}
+input:focus,input:hover{
+  background-color: #eee;
+  outline:none;
 }
 </style>
