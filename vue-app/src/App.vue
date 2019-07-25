@@ -2,6 +2,7 @@
   <div id="app">
      <Header />
      <div class="main">
+       <router-view name="slideUser"></router-view>
        <router-view name="main"></router-view>
      </div>
   </div>
@@ -20,10 +21,6 @@ export default {
   components:{
     Header
   },
-  methods:{ 
-    
-    
-  }
 }
 </script>
 

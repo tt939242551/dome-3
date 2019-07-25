@@ -79,6 +79,13 @@
           this.isLoading =true;
           this.getArticleData();
       },
+      watch: {
+        '$route' (to, from) {
+        // 对路由变化作出响应...
+        this.isLoading = true
+        this.getArticleData();
+        }
+      },
     }
 </script>
 
@@ -97,9 +104,11 @@
     font-size: 12px;
     margin-right: 10px;
   }
-
+  .article{
+   margin-right: calc(305px - 6.25%);
+   margin-left: -6.25%;
+  }
   .article:not(:first-child) {
-    margin-right: 340px;
     margin-top: 15px;
   }
 
@@ -119,11 +128,18 @@
     bottom: -11px;
   }
 
-  #reply a, #reply span {
-    font-size: 13px;
+  .replyUp a, .replyUp span {
+    font-size: 12px;
     color: #666;
     text-decoration: none;
   }
+  #reply p {
+     font-size: 16px;
+     line-height: 25px;
+  }
+   #reply p a {
+     color: rgba(69, 66, 231,0.9);
+   }
   .replySec{
     border-bottom:1px solid #e5e5e5;
     padding:0 10px;
@@ -149,6 +165,7 @@
   .topic_title {
     font-size: 22px;
     font-weight: bold;
+    width: 75%;
     padding: 8px 0;
   }
 
@@ -167,8 +184,7 @@
 
   .topic_content {
     border-top: 1px solid #e5e5e5;
-    padding: 10px;
-    line-height: 2.5em;
+    line-height: 1.6em;
   }
 
   .markdown-text img {

@@ -16,9 +16,18 @@
           </div>
         </li>
         <li v-for="post in posts">
-          <img :src="post.author.avatar_url">
-          <span class="reply_count">{{post.reply_count}}</span>
-          <span class="visit_count">/{{post.visit_count}}</span>
+          <router-link :to="{
+          name:'user_info',
+          params:{
+            name:post.author.loginname
+          }
+          }">
+            <img :src="post.author.avatar_url" alt="">
+          </router-link>
+          <span class="counts">
+            <span class="reply_count">{{post.reply_count}}</span>
+            <span class="visit_count">/{{post.visit_count}}</span>
+          </span>
           <span :class="[{
           'put_good': (post.good  === true),
           'put_top':(post.top  === true),
@@ -29,12 +38,11 @@
           <router-link :to="{
            name:'article',
            params:{
-             id : post.id 
+             id : post.id,
+             name : post.author.loginname 
            }
           }">
-            <span>
-             {{post.title}}
-          </span>
+            <span>{{post.title}}</span>
           </router-link>
     
           <span class="last_reply">
@@ -63,7 +71,7 @@ export default {
       this.$http.get('https://cnodejs.org/api/v1/topics',{
         params:{
           page:1,
-          limit:20
+          limit:40
         }
       })
       .then((res)=>{
@@ -90,7 +98,11 @@ export default {
   .posts {
     margin-top: 10px;
   }
-
+  .counts{
+    display: inline-block;
+    width: 75px;
+    text-align: center;
+  }
   .PostList img {
     height: 30px;
     width: 30px;
@@ -143,11 +155,8 @@ export default {
   }
   .put_good, .put_top {
     background: #80bd01;
-    padding: 2px 4px;
+    padding: 2px 2px 2px 4px;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
     color: #fff;
     font-size: 12px;
     margin-right: 10px;
@@ -156,11 +165,8 @@ export default {
   .topiclist-tab {
     background-color: #e5e5e5;
     color: #999;
-    padding: 2px 4px;
+    padding:  2px 2px 2px 4px;
     border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
     font-size: 12px;
     margin-right: 10px;
   }

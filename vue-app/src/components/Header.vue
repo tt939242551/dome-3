@@ -1,9 +1,17 @@
 <template>
     <div class="header">
-      <img src="../assets/cnodejs_light.svg" alt="">
+      <router-link :to="{
+          name:'root'
+          }" class="img">
+        <img src="../assets/cnodejs_light.svg">
+      </router-link>   
       <span><input type="text" class="search"></span>
       <div class="link">
-        <a href="#">首页</a>
+        <router-link :to="{
+          name:'root'
+          }" class="img">
+        首页
+        </router-link>  
         <a href="#">新手入门</a>
         <a href="#">API</a>
         <a href="#">关于</a>
@@ -26,10 +34,9 @@
   padding: 0 5.3%;
   position: relative;
 }
-img{
-  max-width: 120px;
-  margin-top: 10px;
-  margin-left: -6px;
+img {
+  width: 120px;
+  margin-left: -10px;
 }
 .link{
   float: right;
@@ -59,7 +66,7 @@ a:hover{
     line-height: 20px;
     position: absolute;
     top: 13px;
-    left: 210px;
+    left: 220px;
     border: 1px;
 }
 input:focus,input:hover{
