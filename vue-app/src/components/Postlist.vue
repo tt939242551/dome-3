@@ -49,28 +49,42 @@
              {{post.last_reply_at | formatDate}}
           </span>
         </li>
+        <li>
+        <Pageaction @handleList="changePage" :xxx="currentPage" :yyy="pagebtns" :zzz="jduge"></Pageaction></li>
       </ul>
     </div>
-   
   </div>
 </template>
 
 <script>
+import Pageaction from './Pagination.vue'
+
 export default {
   name: 'postlist',
   data () {
     return {
     isLoading : false,
-    posts:[],  
+    posts:[],
+    currentPage:1, 
+    jduge:false,
+    pagebtns:[1,2,3,4,5,'.....'], 
   }
   },
-  computed :{
+  components :{
+    Pageaction
   },
   methods:{
+    changePage:function(a,b,c){
+      this.currentPage = a;
+      this.pagebtns = b;
+      this.jduge = c ;
+      this.isLoading = true;
+      this.getList();
+    },
     getList:function(){
       this.$http.get('https://cnodejs.org/api/v1/topics',{
         params:{
-          page:1,
+          page: this.currentPage,
           limit:40
         }
       })
