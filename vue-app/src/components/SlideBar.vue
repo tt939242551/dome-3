@@ -8,7 +8,7 @@
             name:userinfo.loginname
           }
           }">
-      <img :src="userinfo.avatar_url" alt="">
+      <img :src="userinfo.avatar_url" alt="作者头像">
     </router-link>
     <router-link :to="{
           name:'user_info',
