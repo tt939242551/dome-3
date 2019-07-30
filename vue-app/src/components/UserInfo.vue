@@ -16,7 +16,7 @@
     </div>
       
     <section>
-      <img :src="userinfo.avatar_url" >
+      <img :src="userinfo.avatar_url" alt="头像">
       <span class="username">{{userinfo.loginname}}</span>
       <div> {{userinfo.score}} 积分</div>
       <p class="create">
