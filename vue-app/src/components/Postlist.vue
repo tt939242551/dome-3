@@ -22,7 +22,7 @@
             name:post.author.loginname
           }
           }">
-            <img :src="post.author.avatar_url" alt="">
+            <img :src="post.author.avatar_url" οnerrοr="{this.src='../assets/error.png'}">
           </router-link>
           <span class="counts">
             <span class="reply_count">{{post.reply_count}}</span>
